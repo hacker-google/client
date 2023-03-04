@@ -67,14 +67,24 @@ class _ReportPageState extends State<ReportPage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/tambah_pengaduan');
-        },
-        child: const Row(children: [
-          Icon(Icons.add),
-          // Text('report'),
-        ]),
+      floatingActionButton: SizedBox(
+        width: 120,
+        height: 50,
+        child: FloatingActionButton(
+          onPressed: () {},
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(15.0))),
+          child: const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(Icons.add),
+                  Text('Report'),
+                ]),
+          ),
+        ),
       ),
       bottomNavigationBar: const Navbar(),
     );
