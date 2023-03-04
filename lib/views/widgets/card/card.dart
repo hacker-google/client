@@ -9,17 +9,39 @@ class MyCard extends StatefulWidget {
 }
 
 class _MyCardState extends State<MyCard> {
-  String _title = '';
-  String _status = '';
-  String _date = '';
-
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(_title),
-        subtitle: Text(_status),
-        trailing: Text(_date),
+    return SizedBox(
+      height: 100,
+      child: Card(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            color: Colors.green.shade300,
+          ),
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.title!),
+                    Text(widget.status!),
+                    Text(widget.date!),
+                  ]),
+              const Icon(Icons.arrow_forward_ios),
+            ],
+          ),
+        ),
+        // ListTile(
+        //   title: Text(widget.title!),
+        //   subtitle: Text(widget.status!),
+        //   trailing: Text(widget.date!),
+        // ),
       ),
     );
   }

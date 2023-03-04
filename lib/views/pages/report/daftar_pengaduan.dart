@@ -34,6 +34,7 @@ class _ReportPageState extends State<ReportPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Crime Space'),
+        backgroundColor: const Color(0xFF311D3F),
       ),
       body: Column(
         children: [
@@ -51,16 +52,14 @@ class _ReportPageState extends State<ReportPage> {
             leading: Icon(Icons.sort),
             title: Text('Sort by Status'),
           ),
-          SizedBox(
-            // get the maximum of height of the screen
-            height: MediaQuery.of(context).size.height - 500,
+          Expanded(
             child: ListView.builder(
               itemCount: _reports.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(_reports[index]['title']),
-                  subtitle: Text(_reports[index]['proses']),
-                  trailing: Text(_reports[index]['tanggal']),
+                return MyCard(
+                  title: _reports[index]['title'],
+                  status: _reports[index]['proses'],
+                  date: _reports[index]['tanggal'],
                 );
               },
             ),
@@ -74,6 +73,7 @@ class _ReportPageState extends State<ReportPage> {
           onPressed: () {},
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(15.0))),
+          backgroundColor: const Color(0xFF311D3F),
           child: const Padding(
             padding: EdgeInsets.all(16.0),
             child: Row(
