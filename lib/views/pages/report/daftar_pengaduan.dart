@@ -18,7 +18,7 @@ class _ReportPageState extends State<ReportPage> {
     {
       'id': 2,
       'title': 'Pencurian',
-      'proses': 'selesai',
+      'proses': 'Selesai',
       'tanggal': '30 Februari 2021',
     },
     {

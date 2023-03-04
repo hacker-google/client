@@ -12,7 +12,7 @@ class _MyCardState extends State<MyCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: 200,
       child: Card(
         shape: RoundedRectangleBorder(
           side: BorderSide(
@@ -30,18 +30,23 @@ class _MyCardState extends State<MyCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(widget.title!),
-                    Text(widget.status!),
+                    Row(
+                      children: [
+                        if (widget.status == 'Dalam Proses')
+                          const Icon(UniconsLine.clock, size: 20),
+                        if (widget.status == 'Selesai')
+                          const Icon(UniconsLine.check_circle, size: 20),
+                        if (widget.status == 'Ditolak')
+                          const Icon(UniconsLine.times_circle, size: 20),
+                        Text(widget.status!),
+                      ],
+                    ),
                     Text(widget.date!),
                   ]),
               const Icon(Icons.arrow_forward_ios),
             ],
           ),
         ),
-        // ListTile(
-        //   title: Text(widget.title!),
-        //   subtitle: Text(widget.status!),
-        //   trailing: Text(widget.date!),
-        // ),
       ),
     );
   }
