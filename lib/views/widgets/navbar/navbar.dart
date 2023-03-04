@@ -1,8 +1,7 @@
+
 // create a code snippet for the navbar
-
+part of '_navbar.dart';
 // Path: lib/navbar.dart
-
-import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
   const Navbar({super.key});
