@@ -12,7 +12,7 @@ class _MyCardState extends State<MyCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 150,
       child: Card(
         shape: RoundedRectangleBorder(
           side: BorderSide(
@@ -29,17 +29,48 @@ class _MyCardState extends State<MyCard> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(widget.title!),
-                    Row(
-                      children: [
-                        if (widget.status == 'Dalam Proses')
-                          const Icon(UniconsLine.clock, size: 20),
-                        if (widget.status == 'Selesai')
-                          const Icon(UniconsLine.check_circle, size: 20),
-                        if (widget.status == 'Ditolak')
-                          const Icon(UniconsLine.times_circle, size: 20),
-                        Text(widget.status!),
-                      ],
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      child: Text(widget.title!,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 7),
+                      child: Row(
+                        children: [
+                          if (widget.status == 'Dalam Proses') ...{
+                            Container(
+                              margin: const EdgeInsets.only(right: 3),
+                              child: const Icon(UniconsLine.clock,
+                                  size: 20, color: Colors.orange),
+                            ),
+                            Text(widget.status!,
+                                style: const TextStyle(
+                                    fontSize: 14, color: Colors.orange)),
+                          },
+                          if (widget.status == 'Selesai') ...{
+                            Container(
+                              margin: const EdgeInsets.only(right: 3),
+                              child: const Icon(UniconsLine.check_circle,
+                                  size: 20, color: Colors.green),
+                            ),
+                            Text(widget.status!,
+                                style: const TextStyle(
+                                    fontSize: 14, color: Colors.green)),
+                          },
+                          if (widget.status == 'Ditolak') ...{
+                            Container(
+                              margin: const EdgeInsets.only(right: 3),
+                              child: const Icon(UniconsLine.times_circle,
+                                  size: 20, color: Colors.red),
+                            ),
+                            Text(widget.status!,
+                                style: const TextStyle(
+                                    fontSize: 14, color: Colors.red)),
+                          }
+                        ],
+                      ),
                     ),
                     Text(widget.date!),
                   ]),
